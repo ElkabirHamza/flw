@@ -1,0 +1,14 @@
+@csrf_exempt
+def receive_data(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            # Process and save data to the database
+            print("Received data:", data)
+            return JsonResponse({"status": "success", "message": "Data received"})
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=400)
+    return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+
+
+path('api/receive-data/', receive_data, name='receive_data'),
