@@ -35,6 +35,11 @@ class ReceiveDataView(APIView):
     path('api/receive-data/', ReceiveDataView.as_view(), name='receive_data'),
 
 
+
+
+Failed to send data. Response code: 400
+Error response: {"status":"error","message":"JSON parse error - Expecting value: line 1 column 77 (char 76)"}
+
 @method_decorator(csrf_exempt, name='dispatch')
 
 from django.utils.decorators import method_decorator
